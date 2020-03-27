@@ -1,0 +1,9 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+
+Data are uploaded to s3 using user access key and secret access credentials, even for the secret S3 bucket. Instead, the secret S3 bucket should restrict access to only certain roles, and the uploader should assume a role to access the secret bucket.
+
+# Poor practice 2
+
+The app server has direct access to the S3 buckets. In this case, if a hacker gets into the server, he/she will have full access to the bucket to steal and/or compromise the data.
