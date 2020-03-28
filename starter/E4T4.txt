@@ -1,8 +1,18 @@
 
 # What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
 
+ANSWER: We tightened security groups, and can further tighten Network ACL at the subnet level, to add rules to prevent unauthorized traffic source and type / port.
+If budgets permit, Web Application Firewall can guard against common vulnerabilities and attacks.
+For even larger companies, AWS Shield can help utilize AWS experts on DDOS attacks and other security and cost threats.
+
 # Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+
+ANSWER: VPC endpoints for s3 can prevent direct access from the public internet, but hackers can still use vulnerabilities on ec2 instances to indirectly access the resource (like we did to the attack instance), so IAM tightening is still crucial.
 
 # Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
 
+ANSWER: No. existing objects won't be encrypted. One way is to make a copy and delete the original, then rename the copy to original name.
+
 # What would happen if the original cloud formation templates are applied to this environment.
+
+Cloudformation drift will detect the changes for review. In the IaC convention, manual changes should be avoided, as they add complexity and inconsistency, which are security vulnerabilities.
