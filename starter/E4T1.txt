@@ -2,4 +2,12 @@
 
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
 
+One way is to use "bastion host" or "jump box", an instance that has internet access with hardened security. This way all other instances will be private and only accessible from hops through this much secure instance.
+
+Another way is to use NACL and Security Groups to allow for only access from certain IPs.
+
+A third approach is to make everything private, and only accessible from VPN.
+
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+A bucket policy specifying IP range would be a way to restrict access. We could also restrict access only to certain roles, not API credentials.
