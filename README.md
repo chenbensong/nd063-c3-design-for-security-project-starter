@@ -1,4 +1,6 @@
 # Cloud Security - Secure the Recipe Vault Web Application
+
+## **NOTE:** all required screenshots and docs are in the `starter` directory.
  
 In this project, you will:
  
