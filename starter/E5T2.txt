@@ -2,12 +2,29 @@
 
 ## Scan infrastructure as code templates
 
+AWS's IaC templates are CloudFormation templates. Some security scanning tools include:
+Dome9 - https://blog.checkpoint.com/2018/05/24/static-code-analysis-infrastructure-code-iac-templates/
+Prisma - https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/prisma-cloud-devops-security/secure-your-infrastructure-automation.html
+
 ### Example vulnerability
+
+For instance, network security. A security group allowing for traffic from 0.0.0.0/0 is likely too permissive and opens up hacking possibilities.
 
 ##Scan AMI’s or containers for OS vulnerabilities
 
+AWS Inspector can be used to scan an AMI deployed in EC2.
+The Clair tool can be used to scan containers for vulnerabilities - https://aws.amazon.com/blogs/compute/scanning-docker-images-for-vulnerabilities-using-clair-amazon-ecs-ecr-aws-codepipeline/
+
 ### Example vulnerability
+
+For instance, operating system default configs contain vulnerabilities such as network permissions, root access, unpatched old software.
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
 
+AWS Config is the native tool for configuration vulnerability assessment.
+AWS System Manager gives you visibility and control of your infrastructure on AWS.
+
 ### Example vulnerability
+
+Violations of "least privilege" access rules are common config vulnerabilities. For instance, S3 bucket policy that allows for global writes.
+Use of api access keys instead of roles is another common problem that can be detected and prevented by AWS Config.
